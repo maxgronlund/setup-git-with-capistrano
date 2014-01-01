@@ -6,13 +6,15 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-
-require_relative '../libraries/ssh_setup'
+#require_relative '../libraries/ssh_setup'
 
 ssh_config_path = "/etc/ssh/ssh_config"
 server_ip = "162.243.81.180"
 
-SSHSetup.run ssh_config_path, server_ip
+bash "Create ssh_config" do
+  user "root"
+  SSHSetup.run ssh_config_path, server_ip
+end
 
 #bash "Add a hello-world text file" do
 #  user "root"
