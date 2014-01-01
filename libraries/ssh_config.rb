@@ -1,6 +1,7 @@
 require 'erb'
 
 module SSHConfig
+  __dir__ = File.dirname(__FILE__)
   @@erb = ERB.new(File.read(File.join __dir__, 'ssh_config.erb'))
   
   def self.generate server_ip
